@@ -7,11 +7,8 @@
 (def password "green99")
 
 
-(defn data-entry [folderpath]
-	(let 	[main 	"recipes"
-			paths	"|recipes|dinner|"]
-
-		(doseq [file (.listFiles (File. folderpath))]
+(defn data-entry [folderpath main paths]
+	(doseq [file (.listFiles (File. folderpath))]
 			(let [connection 	(DriverManager/getConnection connection-str username password)			
 				stmt 	(.createStatement connection)
 				filename 	(.getName file)
@@ -20,10 +17,10 @@
 					(do 
 						(.executeUpdate stmt query)
 						(.close connection)
-						(prn query))))))
+						(prn query)))))
 
 
-
+(data-entry "/home/thao/prolife" "profile" "|profile|dinner")
 
 
 (def connection (DriverManager/getConnection connection-str username password))
