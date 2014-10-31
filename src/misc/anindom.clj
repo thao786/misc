@@ -20,7 +20,7 @@
 						(prn query)))))
 
 
-(data-entry "/home/thao/prolife" "profile" "|profile|dinner")
+(data-entry "/home/thao/prolife" "profile" "|profile|")
 
 
 (def connection (DriverManager/getConnection connection-str username password))
